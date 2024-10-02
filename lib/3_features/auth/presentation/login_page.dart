@@ -1,4 +1,5 @@
 import 'package:envied_service/3_features/auth/data/repositories/auth_repository.dart';
+import 'package:envied_service/3_features/auth/presentation/home_page.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
@@ -10,8 +11,8 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   final _formKey = GlobalKey<FormState>();
-  final _usernameController = TextEditingController();
-  final _passwordController = TextEditingController();
+  final _usernameController = TextEditingController(text: 'root');
+  final _passwordController = TextEditingController(text: 'P@ssw0rd');
   final _authRepository = AuthRepository();
 
   bool _isLoading = false;
@@ -90,7 +91,9 @@ class _LoginPageState extends State<LoginPage> {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(content: Text('Login Successful!')),
         );
-        // Navigate to home page or dashboard
+        Navigator.of(context).pushReplacement(
+          MaterialPageRoute(builder: (context) => const HomePage()),
+        );
       } else {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(content: Text('Login Failed. Please try again.')),

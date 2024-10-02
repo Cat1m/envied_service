@@ -19,10 +19,8 @@ class SecureStorageService {
   }
 
   //đọc
-  Future<void> readSecureData(
-    String key,
-  ) async {
-    await _storage.read(key: key);
+  Future<String?> readSecureData(String key) async {
+    return await _storage.read(key: key);
   }
 
   //xóa

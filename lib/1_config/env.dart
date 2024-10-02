@@ -12,4 +12,10 @@ abstract class Env {
 
   @EnviedField(varName: 'DEBUG_MODE')
   static bool debugMode = _Env.debugMode;
+
+  @EnviedField(varName: 'LOGIN_USERNAME', obfuscate: true)
+  static final String loginUsername = _Env.loginUsername;
+
+  @EnviedField(varName: 'LOGIN_PASSWORD', obfuscate: true)
+  static final String loginPassword = _Env.loginPassword;
 }
